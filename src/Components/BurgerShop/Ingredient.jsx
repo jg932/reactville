@@ -1,12 +1,21 @@
 import React from "react"
 
-const Ingredient = () => {
+const Ingredient = (props) => {
 	return (
-		<li>
-			Name of ingredient here
-			<button>+</button>
-			<button>X</button>
-		</li>
+		props.disabled ?
+			<li style={{ background: 'darkgray' }}>
+				{props.ingredient.name}
+				{!props.list && <button onClick={() => props.removeFromBurger(props.idx)}>X</button>}
+			</li>
+			:
+			<li style={{ background: props.ingredient.color }}>
+				{props.ingredient.name}
+				{props.list ?
+					<button onClick={() => props.addToBurger(props.ingredient)}>+</button>
+					:
+					<button onClick={() => props.removeFromBurger(props.idx)}>X</button>
+				}
+			</li>
 	)
 }
 
