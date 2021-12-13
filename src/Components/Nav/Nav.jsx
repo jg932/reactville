@@ -12,7 +12,7 @@ const Nav = (props) => {
       <NavLink to="/" id="logo"><img src={Logo} alt="react logo"></img></NavLink>
       <NavLink to="/burgers">Burger Shop</NavLink>
       <NavLink to="/market">Super Market</NavLink>
-      <Wallet cash={props.cash}/>
+      <Wallet cash={props.cash} />
     </nav>
   )
 }

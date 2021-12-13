@@ -1,10 +1,20 @@
 import React from 'react'
+import Product from './Product'
 
-const DisplayProducts = () => {
-  
+const DisplayProducts = (props) => {
+
+  const selectedProducts = props.products.map((product, index) => {
+    return product.category === props.productCategory &&
+      <Product
+        key={index}
+        product={product}
+        addToCart={props.addToCart}
+      />
+  })
+
   return (
     <div className="product-list">
-      Use the map function and Product component here
+      {selectedProducts}
     </div>
   )
 }
